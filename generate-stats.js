@@ -1,45 +1,10 @@
 const fs = require('fs');
 
 // Configuration
-const USERNAME = 'FabioDevCode'; // À MODIFIER
+const USERNAME = 'FabioDevCode';
 
-// Couleurs officielles GitHub pour les langages
-const LANGUAGE_COLORS = {
-  'JavaScript': '#f1e05a',
-  'TypeScript': '#3178c6',
-  'Python': '#3572A5',
-  'Java': '#b07219',
-  'C': '#555555',
-  'C++': '#f34b7d',
-  'C#': '#178600',
-  'PHP': '#4F5D95',
-  'Ruby': '#701516',
-  'Go': '#00ADD8',
-  'Rust': '#dea584',
-  'Swift': '#F05138',
-  'Kotlin': '#A97BFF',
-  'Dart': '#00B4AB',
-  'Scala': '#c22d40',
-  'Shell': '#89e051',
-  'HTML': '#e34c26',
-  'CSS': '#563d7c',
-  'Vue': '#41b883',
-  'Svelte': '#ff3e00',
-  'Lua': '#000080',
-  'R': '#198CE7',
-  'Objective-C': '#438eff',
-  'Perl': '#0298c3',
-  'Haskell': '#5e5086',
-  'Elixir': '#6e4a7e',
-  'Clojure': '#db5855',
-  'Groovy': '#4298b8',
-  'Julia': '#a270ba',
-  'MATLAB': '#e16737',
-  'Assembly': '#6E4C13',
-  'Vim Script': '#199f4b',
-  'Dockerfile': '#384d54',
-  'Makefile': '#427819',
-};
+// Couleurs officielles GitHub
+const LANGUAGE_COLORS = JSON.parse(fs.readFileSync('github_colors.json', 'utf8'));
 
 async function fetchGitHubStats(username, token) {
   console.log(`📊 Récupération des stats pour ${username}...`);
