@@ -2,8 +2,8 @@ name: Update GitHub Stats
 
 on:
   # S'exécute tous les lundis à 00:00 UTC
-  schedule:
-    - cron: "0 0 * * 1"
+  # schedule:
+  #   - cron: "0 0 * * 1"
 
   # Permet de lancer manuellement depuis l'onglet Actions
   workflow_dispatch:
