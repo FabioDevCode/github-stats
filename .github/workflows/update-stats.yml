@@ -8,10 +8,6 @@ on:
   # Permet de lancer manuellement depuis l'onglet Actions
   workflow_dispatch:
 
-  # S'exécute aussi à chaque push (pour tester lors de la configuration)
-  push:
-    branches: [main]
-
 jobs:
   update-stats:
     runs-on: ubuntu-latest
