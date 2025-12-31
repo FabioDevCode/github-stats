@@ -1,0 +1,41 @@
+name: Update GitHub Stats
+
+on:
+  # S'exécute tous les lundis à 00:00 UTC
+  schedule:
+    - cron: "0 0 * * 1"
+
+  # Permet de lancer manuellement depuis l'onglet Actions
+  workflow_dispatch:
+
+  # S'exécute aussi à chaque push (pour tester lors de la configuration)
+  push:
+    branches: [main]
+
+jobs:
+  update-stats:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: 📥 Checkout repository
+        uses: actions/checkout@v4
+
+      - name: 🔧 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: 📊 Generate stats
+        run: node generate-stats.js
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+
+      - name: 📤 Commit and push changes
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add *.svg
+          git diff --quiet && git diff --staged --quiet || (git commit -m "🔄 Update stats [skip ci]" && git push)
