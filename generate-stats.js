@@ -3,6 +3,13 @@ const fs = require('fs');
 // Configuration
 const USERNAME = 'FabioDevCode';
 
+// Thème de couleur
+const BG_COLOR = '#202830';
+const BORDER_COLOR = '#151B23';
+const TITLE_COLOR = '#D1D7E0';
+const TEXT_COLOR = '#D1D7E0';
+const PERCENT_COLOR = '#9298A1';
+
 // Couleurs officielles GitHub
 const LANGUAGE_COLORS = JSON.parse(fs.readFileSync('github_colors.json', 'utf8'));
 
@@ -75,7 +82,7 @@ function generateSVG(languageStats, topN = 5) {
   }));
 
   // Générer la barre de progression
-  let currentX = 0;
+  let currentX = 10;
   const barHeight = 12;
   const barY = 50;
   const barSegments = langData.map(lang => {
@@ -91,8 +98,8 @@ function generateSVG(languageStats, topN = 5) {
     const item = `
       <g>
         <circle cx="20" cy="${legendY}" r="5" fill="${lang.color}"/>
-        <text x="35" y="${legendY + 4}" font-size="14" fill="#c9d1d9">${lang.name}</text>
-        <text x="380" y="${legendY + 4}" font-size="14" fill="#8b949e" text-anchor="end">${lang.percentage}%</text>
+        <text x="35" y="${legendY + 4}" font-size="14" fill="${TEXT_COLOR}">${lang.name}</text>
+        <text x="380" y="${legendY + 4}" font-size="14" fill="${PERCENT_COLOR}" text-anchor="end">${lang.percentage}%</text>
       </g>
     `;
     legendY += 25;
@@ -102,31 +109,31 @@ function generateSVG(languageStats, topN = 5) {
   const height = 70 + (topN * 25) + 20;
 
   return `<?xml version="1.0" encoding="UTF-8"?>
-<svg width="420" height="${height}" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <style>
-      @import url('https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;500;600&amp;display=swap');
-      * { font-family: 'Segoe UI', Ubuntu, sans-serif; }
-    </style>
-  </defs>
+  <svg width="420" height="${height}" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <style>
+        @import url('https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;500;600&amp;display=swap');
+        * { font-family: 'Segoe UI', Ubuntu, sans-serif; }
+      </style>
+    </defs>
 
-  <!-- Background -->
-  <rect width="420" height="${height}" fill="#0d1117" rx="10" stroke="#30363d" stroke-width="1"/>
+    <!-- Background -->
+    <rect width="420" height="${height}" fill="${BG_COLOR}" rx="10" stroke="${BORDER_COLOR}" stroke-width="1"/>
 
-  <!-- Title -->
-  <text x="210" y="30" font-size="18" fill="#58a6ff" font-weight="600" text-anchor="middle">
-    Top Languages
-  </text>
+    <!-- Title -->
+    <text x="210" y="30" font-size="18" fill="${TITLE_COLOR}" font-weight="600" text-anchor="middle">
+      Top Langages
+    </text>
 
-  <!-- Progress Bar Container -->
-  <rect x="10" y="${barY}" width="400" height="${barHeight}" fill="#161b22" rx="6"/>
+    <!-- Progress Bar Container -->
+    <rect x="10" y="${barY}" width="400" height="${barHeight}" fill="#161b2200" rx="6"/>
 
-  <!-- Progress Bar Segments -->
-  ${barSegments}
+    <!-- Progress Bar Segments -->
+    ${barSegments}
 
-  <!-- Legend -->
-  ${legendItems}
-</svg>`;
+    <!-- Legend -->
+    ${legendItems}
+  </svg>`;
 }
 
 function generateEmptySVG(topN) {
@@ -165,9 +172,7 @@ async function main() {
     const defaultSvg = generateSVG(languageStats, 5);
     fs.writeFileSync('stats.svg', defaultSvg);
     console.log('  ✅ stats.svg (default)');
-
     console.log('\n🎉 Toutes les images ont été générées avec succès !');
-
   } catch (error) {
     console.error('❌ Erreur lors de la génération:', error);
     process.exit(1);
