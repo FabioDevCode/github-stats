@@ -1,1 +1,0 @@
-# statockage des images

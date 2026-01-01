@@ -1,5 +1,4 @@
 const fs = require('fs');
-const path = require('path');
 
 // Configuration
 const CONFIG = JSON.parse(fs.readFileSync('config.json', 'utf8'));;
@@ -138,8 +137,6 @@ function generateEmptySVG(topN) {
 
 async function main() {
 	const token = process.env.GITHUB_TOKEN;
-	const workspace = process.env.GITHUB_WORKSPACE || process.cwd();
-	const statsDir = path.join(workspace, 'stats');
 
 	if (!token) {
 		console.error('❌ GITHUB_TOKEN non défini !');
@@ -149,15 +146,13 @@ async function main() {
 	try {
 		const languageStats = await fetchGitHubStats(CONFIG.USERNAME, token);
 
-		fs.mkdirSync(statsDir, { recursive: true });
-
 		// Générer plusieurs versions
 		const variants = [2, 4, 5, 6, 7, 8];
 
 		console.log('\n📸 Génération des images SVG...');
 		variants.forEach(n => {
 			const svg = generateSVG(languageStats, n);
-			const filename = path.join(statsDir, `stats-top${n}.svg`);
+			const filename = `stats-top${n}.svg`;
 			fs.writeFileSync(filename, svg);
 			console.log(`  ✅ ${filename}`);
 		});
