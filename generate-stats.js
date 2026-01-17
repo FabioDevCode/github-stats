@@ -153,7 +153,7 @@ function generateUserStatsSVG(stats, username) {
 	const iconColor = CONFIG.ICON_COLOR || '#6e7681';
 	const valueColor = CONFIG.VALUE_COLOR || CONFIG.TEXT_COLOR;
 
-	let itemsY = 55;
+	let itemsY = 50;
 	const statsItems = statItems.map(item => {
 		const formattedValue = formatNumber(item.value);
 		const itemSVG = `
@@ -164,11 +164,11 @@ function generateUserStatsSVG(stats, username) {
 			<text x="28" y="12" font-size="14" fill="${CONFIG.TEXT_COLOR}">${item.label}:</text>
 			<text x="145" y="12" font-size="14" font-weight="600" fill="${valueColor}">${formattedValue}</text>
 		</g>`;
-		itemsY += 30;
+		itemsY += 24;
 		return itemSVG;
 	}).join('');
 
-	const height = 230;
+	const height = 195;
 	const width = 420;
 
 	return `<?xml version="1.0" encoding="UTF-8"?>
