@@ -153,7 +153,7 @@ function generateUserStatsSVG(stats, username) {
 	const iconColor = CONFIG.ICON_COLOR || '#6e7681';
 	const valueColor = CONFIG.VALUE_COLOR || CONFIG.TEXT_COLOR;
 
-	let itemsY = 50;
+	let itemsY = 60;
 	const statsItems = statItems.map(item => {
 		const formattedValue = formatNumber(item.value);
 		const itemSVG = `
