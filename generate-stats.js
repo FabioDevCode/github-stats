@@ -144,10 +144,18 @@ async function main() {
 	}
 
 	try {
-		const languageStats = await fetchGitHubStats(CONFIG.USERNAME, token);
+		let languageStats = await fetchGitHubStats(CONFIG.USERNAME, token);
+
+		// Filtrer les langages ignorés
+		if (CONFIG.IGNORE_LANGUAGES && CONFIG.IGNORE_LANGUAGES.length > 0) {
+			languageStats = Object.fromEntries(
+				Object.entries(languageStats).filter(([lang]) => !CONFIG.IGNORE_LANGUAGES.includes(lang))
+			);
+			console.log(`🚫 Langages ignorés: ${CONFIG.IGNORE_LANGUAGES.join(', ')}`);
+		}
 
 		// Générer plusieurs versions
-		const variants = [2, 4, 5, 6, 7, 8];
+		const variants = CONFIG.VARIANTS || [2, 4, 6, 8, 10];
 
 		console.log('\n📸 Génération des images SVG...');
 		variants.forEach(n => {

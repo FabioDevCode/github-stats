@@ -5,5 +5,7 @@
     "BORDER_COLOR": "#202830",
     "TITLE_COLOR": "#D1D7E0",
     "TEXT_COLOR": "#D1D7E0",
-    "PERCENT_COLOR": "#9298A1"
+    "PERCENT_COLOR": "#9298A1",
+    "VARIANTS": [4, 6, 8],
+    "IGNORE_LANGUAGES": ["HTML", "CSS", "Handlebars", "SCSS"]
 }
