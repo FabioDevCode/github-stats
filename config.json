@@ -1,11 +1,14 @@
 {
     "USERNAME": "FabioDevCode",
     "TITLE": "Langages Utilisés",
+    "STATS_TITLE": "FabioDevCode's GitHub Stats",
     "BG_COLOR": "#202830",
     "BORDER_COLOR": "#202830",
     "TITLE_COLOR": "#D1D7E0",
     "TEXT_COLOR": "#D1D7E0",
     "PERCENT_COLOR": "#9298A1",
+    "ICON_COLOR": "#6e7681",
+    "VALUE_COLOR": "#58a6ff",
     "VARIANTS": [2, 4, 6],
     "IGNORE_LANGUAGES": ["HTML", "CSS", "Handlebars", "SCSS"]
 }
