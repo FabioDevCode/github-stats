@@ -11,7 +11,7 @@
 		<rect width="420" height="240" fill="#202830" rx="10" stroke="#202830" stroke-width="1"/>
 
 		<!-- Title -->
-		<text x="210" y="30" font-size="18" fill="#D1D7E0" font-weight="600" text-anchor="middle">
+		<text x="25" y="30" font-size="18" fill="#D1D7E0" font-weight="600">
 			Langages Utilisés
 		</text>
 
