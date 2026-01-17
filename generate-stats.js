@@ -260,7 +260,7 @@ function generateSVG(languageStats, topN = 5) {
 		<rect width="420" height="${height}" fill="${CONFIG.BG_COLOR}" rx="10" stroke="${CONFIG.BORDER_COLOR}" stroke-width="1"/>
 
 		<!-- Title -->
-		<text x="25" y="30" font-size="18" fill="${CONFIG.TITLE_COLOR}" font-weight="600">
+		<text x="15" y="30" font-size="18" fill="${CONFIG.TITLE_COLOR}" font-weight="600">
 			${CONFIG.TITLE}
 		</text>
 
