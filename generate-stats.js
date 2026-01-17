@@ -155,7 +155,7 @@ async function main() {
 		}
 
 		// Générer plusieurs versions
-		const variants = CONFIG.VARIANTS || [2, 4, 6, 8, 10];
+		const variants = CONFIG.VARIANTS || [2, 4, 6];
 
 		console.log('\n📸 Génération des images SVG...');
 		variants.forEach(n => {
