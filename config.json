@@ -8,7 +8,7 @@
     "TEXT_COLOR": "#D1D7E0",
     "PERCENT_COLOR": "#9298A1",
     "ICON_COLOR": "#6e7681",
-    "VALUE_COLOR": "#58a6ff",
+    "VALUE_COLOR": "#41B883",
     "VARIANTS": [4],
     "IGNORE_LANGUAGES": ["HTML", "CSS", "Handlebars", "SCSS"]
 }
