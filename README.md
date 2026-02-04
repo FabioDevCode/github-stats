@@ -138,8 +138,8 @@ https://votre-username.github.io/github-stats/github-stats.svg
 ### Exemples :
 
 <div style="display: inline-block" align="left">
-  <img height="200px" src="https://fabiodevcode.github.io/github-stats/stats-top4.svg"/>
-  <img height="200px" src="https://fabiodevcode.github.io/github-stats/github-stats.svg"/>
+  <img height="180px" src="https://fabiodevcode.github.io/github-stats/stats-top4.svg"/>
+  <img height="180px" src="https://fabiodevcode.github.io/github-stats/github-stats.svg"/>
 </div>
 
 ## ⚙️ Configuration
