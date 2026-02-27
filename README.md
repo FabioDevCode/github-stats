@@ -1,13 +1,15 @@
 # GitHub Stats Generator
 
-Générateur automatique de statistiques GitHub avec plusieurs variantes.
+Générez automatiquement des images SVG de vos statistiques GitHub et intégrez-les dans n'importe quel README.
+
+Ce projet fonctionne entièrement via **GitHub Actions** : aucune installation locale requise. Les images sont générées automatiquement selon la fréquence de votre choix et hébergées sur **GitHub Pages**, accessibles par URL publique.
 
 ## 🎯 Résultat
 
-Ce projet génère automatiquement des images SVG affichant, vos statistiques github et langages les plus utilisés.
+Ce projet génère automatiquement des images SVG affichant vos statistiques GitHub et les langages les plus utilisés.
 
 - `stats-top4.svg` - Top 4 langages
-- `github-stats.svg` - Statistiques globale github
+- `github-stats.svg` - Statistiques globales GitHub
 
 ### Exemples :
 
@@ -29,9 +31,9 @@ cd github-stats
 rm -f *.svg
 ```
 
-### 2. Ajouter les fichiers
+### 2. Vérifier la structure du projet
 
-Créez la structure suivante :
+Après le clone, vérifiez que la structure suivante est bien présente :
 
 ```
 github-stats/
@@ -51,7 +53,7 @@ Dans `config.json`, modifiez les valeurs selon vos besoins :
 ```json
 {
   "USERNAME": "votre-username",
-  "TITLE": "Langages Utilisés",
+  "TITLE": "Top Languages",
   "STATS_TITLE": "GitHub Stats",
   "BG_COLOR": "#202830",
   "BORDER_COLOR": "#202830",
@@ -150,7 +152,7 @@ Toute la configuration se fait dans le fichier `config.json` :
 ```json
 {
   "USERNAME": "votre-username",
-  "TITLE": "Langages Utilisés",
+  "TITLE": "Top Languages",
   "STATS_TITLE": "GitHub Stats",
   "BG_COLOR": "#202830",
   "BORDER_COLOR": "#202830",
@@ -183,7 +185,7 @@ Toute la configuration se fait dans le fichier `config.json` :
 
 ### Changer la fréquence de mise à jour
 
-Dans `.github/workflows/update-stats.yml`, modifiez la ligne cron :
+Dans `.github/workflows/update-stats.yml`, remplacez la valeur `cron` par l'une des options suivantes selon vos besoins :
 
 ```yaml
 schedule:
@@ -191,6 +193,8 @@ schedule:
   - cron: "0 */6 * * *" # Toutes les 6 heures
   - cron: "0 0 * * 1" # Tous les lundis
 ```
+
+> 💡 La fréquence par défaut est définie dans ce fichier. Conservez une seule ligne `- cron:` active à la fois.
 
 ### Couleurs des langages
 
@@ -208,7 +212,7 @@ Les couleurs des langages sont définies dans `github_colors.json`. Ce fichier c
 
 1. Attendez 2-3 minutes après le premier push (déploiement GitHub Pages)
 2. Vérifiez que GitHub Pages est activé dans Settings
-3. Vérifiez l'URL : `https://votre-username.github.io/nom-du-repo/stats.svg`
+3. Vérifiez l'URL : `https://votre-username.github.io/nom-du-repo/stats-top4.svg`
 
 ### Forcer une mise à jour manuelle
 
@@ -218,8 +222,8 @@ Les couleurs des langages sont définies dans `github_colors.json`. Ce fichier c
 
 ## 📄 Licence
 
-Ce projet est libre d'utilisation pour votre usage personnel.
+Ce projet est distribué sous licence [MIT](LICENSE). Vous êtes libre de l'utiliser, le modifier et le redistribuer.
 
 ---
 
-**Note :** Les statistiques sont mises à jour automatiquement chaque Lundi. Les repositories forkés sont exclus du calcul.
+**Note :** Les dépôts forkés sont exclus du calcul des statistiques. La fréquence de mise à jour est configurable, voir la section [Changer la fréquence de mise à jour](#changer-la-fréquence-de-mise-à-jour).
