@@ -1,4 +1,4 @@
-# 📊 GitHub Stats Generator
+# GitHub Stats Generator
 
 Générateur automatique de statistiques GitHub avec plusieurs variantes.
 
@@ -6,12 +6,15 @@ Générateur automatique de statistiques GitHub avec plusieurs variantes.
 
 Ce projet génère automatiquement des images SVG affichant, vos statistiques github et langages les plus utilisés.
 
-Exemple :
-
-- `stats-top2.svg` - Top 2 langages
 - `stats-top4.svg` - Top 4 langages
-- `stats-top6.svg` - Top 6 langages
 - `github-stats.svg` - Statistiques globale github
+
+### Exemples :
+
+<div style="display: inline-block" align="left">
+  <img height="180px" src="https://fabiodevcode.github.io/github-stats/stats-top4.svg"/>
+  <img height="180px" src="https://fabiodevcode.github.io/github-stats/github-stats.svg"/>
+</div>
 
 ## 🚀 Installation
 
@@ -123,7 +126,8 @@ https://votre-username.github.io/github-stats/github-stats.svg
 ### Dans un README :
 
 ```markdown
-![Top 5 Languages](https://votre-username.github.io/github-stats/stats-top4.svg)
+![Top Languages](https://votre-username.github.io/github-stats/stats-top4.svg)
+![Top Languages](https://votre-username.github.io/github-stats/github-stats.svg)
 ```
 
 ### En HTML :
@@ -133,14 +137,11 @@ https://votre-username.github.io/github-stats/github-stats.svg
   src="https://votre-username.github.io/github-stats/stats-top4.svg"
   alt="Top Languages"
 />
+<img
+  src="https://votre-username.github.io/github-stats/github-stats.svg"
+  alt="Github Stats"
+/>
 ```
-
-### Exemples :
-
-<div style="display: inline-block" align="left">
-  <img height="180px" src="https://fabiodevcode.github.io/github-stats/stats-top4.svg"/>
-  <img height="180px" src="https://fabiodevcode.github.io/github-stats/github-stats.svg"/>
-</div>
 
 ## ⚙️ Configuration
 
@@ -221,4 +222,4 @@ Ce projet est libre d'utilisation pour votre usage personnel.
 
 ---
 
-**Note :** Les statistiques sont mises à jour automatiquement chaque jour. Les repositories forkés sont exclus du calcul.
+**Note :** Les statistiques sont mises à jour automatiquement chaque Lundi. Les repositories forkés sont exclus du calcul.
