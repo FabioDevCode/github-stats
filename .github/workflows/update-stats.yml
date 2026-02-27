@@ -16,20 +16,20 @@ jobs:
       contents: write
 
     steps:
-      - name: 📥 Checkout repository
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: 🔧 Setup Node.js
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: "20"
 
-      - name: 📊 Generate stats
+      - name: Generate stats
         run: node generate-stats.js
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
 
-      - name: 📤 Commit and push changes
+      - name: Commit and push changes
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
