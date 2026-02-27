@@ -1,17 +1,19 @@
 # GitHub Stats Generator
 
-Générez automatiquement des images SVG de vos statistiques GitHub et intégrez-les dans n'importe quel README.
+[FR - README en Français](README.fr.md)
 
-Ce projet fonctionne entièrement via **GitHub Actions** : aucune installation locale requise. Les images sont générées automatiquement selon la fréquence de votre choix et hébergées sur **GitHub Pages**, accessibles par URL publique.
+Automatically generate SVG cards for your GitHub stats and embed them in any README.
 
-## 🎯 Résultat
+This project runs entirely with **GitHub Actions**: no local installation required. Images are generated on a schedule you control and hosted on **GitHub Pages**, with public URLs.
 
-Ce projet génère automatiquement des images SVG affichant vos statistiques GitHub et les langages les plus utilisés.
+## 🎯 Output
 
-- `stats-top4.svg` - Top 4 langages
-- `github-stats.svg` - Statistiques globales GitHub
+This project generates SVG images showing your GitHub statistics and most used languages.
 
-### Exemples :
+- `stats-top4.svg` - Top 4 languages
+- `github-stats.svg` - Global GitHub stats
+
+### Examples
 
 <div style="display: inline-block" align="left">
   <img height="180px" src="https://fabiodevcode.github.io/github-stats/stats-top4.svg"/>
@@ -20,20 +22,20 @@ Ce projet génère automatiquement des images SVG affichant vos statistiques Git
 
 ## 🚀 Installation
 
-### 1. Cloner le repository
+### 1. Clone the repository
 
 ```bash
-# Cloner le projet
+# Clone the project
 git clone https://github.com/FabioDevCode/github-stats.git
 cd github-stats
 
-# Supprimer les fichiers SVG existants (ils seront regénérés avec vos stats)
+# Remove existing SVG files (they will be regenerated with your stats)
 rm -f *.svg
 ```
 
-### 2. Vérifier la structure du projet
+### 2. Verify the project structure
 
-Après le clone, vérifiez que la structure suivante est bien présente :
+After cloning, make sure the following structure is present:
 
 ```
 github-stats/
@@ -43,16 +45,17 @@ github-stats/
 ├── config.json
 ├── generate-stats.js
 ├── github_colors.json
-└── README.md
+├── README.md
+└── README.fr.md
 ```
 
-### 3. Modifier la configuration
+### 3. Update configuration
 
-Dans `config.json`, modifiez les valeurs selon vos besoins :
+In `config.json`, update values to match your needs:
 
 ```json
 {
-  "USERNAME": "votre-username",
+  "USERNAME": "your-username",
   "TITLE": "Top Languages",
   "STATS_TITLE": "GitHub Stats",
   "BG_COLOR": "#202830",
@@ -67,38 +70,40 @@ Dans `config.json`, modifiez les valeurs selon vos besoins :
 }
 ```
 
-> 📝 **Note :** Consultez la section [Options disponibles](#options-disponibles) pour la description complète de chaque paramètre.
+> 📝 **Note:** See the [Available options](#available-options) section for full parameter details.
 
-### 4. Créer un token GitHub
+### 4. Create a GitHub token
 
-1. Allez sur GitHub → Settings → Developer settings → Personal access tokens → Tokens (classic)
-2. Cliquez sur "Generate new token (classic)"
-3. Nom : `GitHub Stats`
-4. Cochez les permissions :
-   - ✅ `repo` (tous les sous-items)
-   - ✅ `read:user`
-5. Générez et **copiez le token** (vous ne le reverrez plus !)
+1. Go to GitHub → Settings → Developer settings → Personal access tokens → Tokens (classic)
+2. Click "Generate new token (classic)"
+3. Name: `GitHub Stats`
+4. Select these permissions:
 
-### 5. Ajouter le token au repository
+- ✅ `repo` (all sub-items)
+- ✅ `read:user`
 
-1. Dans votre repo GitHub → Settings → Secrets and variables → Actions
-2. Cliquez sur "New repository secret"
-3. Name : `GH_TOKEN`
-4. Secret : collez votre token
-5. Cliquez sur "Add secret"
+5. Generate and **copy the token** (you will not see it again)
 
-### 6. Activer GitHub Pages
+### 5. Add token to repository secrets
+
+1. In your GitHub repository → Settings → Secrets and variables → Actions
+2. Click "New repository secret"
+3. Name: `GH_TOKEN`
+4. Secret: paste your token
+5. Click "Add secret"
+
+### 6. Enable GitHub Pages
 
 1. Repository Settings → Pages
-2. Source : Deploy from a branch
-3. Branch : `main` / `/ (root)`
-4. Cliquez sur "Save"
+2. Source: Deploy from a branch
+3. Branch: `main` / `/ (root)`
+4. Click "Save"
 
-### 7. Premier lancement
+### 7. First run
 
-Deux options :
+Two options:
 
-**Option A - Automatique :**
+**Option A - Automatic:**
 
 ```bash
 git add .
@@ -106,52 +111,52 @@ git commit -m "Initial setup"
 git push
 ```
 
-**Option B - Manuel :**
+**Option B - Manual:**
 
-1. Allez dans l'onglet "Actions" de votre repo
-2. Cliquez sur le workflow "Update GitHub Stats"
-3. Cliquez sur "Run workflow"
+1. Open the "Actions" tab in your repository
+2. Select the "Update GitHub Stats" workflow
+3. Click "Run workflow"
 
-## 📝 Utilisation
+## 📝 Usage
 
-Une fois déployé, vos images seront disponibles aux URLs :
+After deployment, your images are available at:
 
 ```
-https://votre-username.github.io/github-stats/stats-top2.svg
-https://votre-username.github.io/github-stats/stats-top4.svg
-https://votre-username.github.io/github-stats/stats-top6.svg
-https://votre-username.github.io/github-stats/github-stats.svg
+https://your-username.github.io/github-stats/stats-top2.svg
+https://your-username.github.io/github-stats/stats-top4.svg
+https://your-username.github.io/github-stats/stats-top6.svg
+https://your-username.github.io/github-stats/github-stats.svg
 ```
 
-> **Note :** Les fichiers `stats-topN.svg` dépendent de la configuration `VARIANTS` dans `config.json`. Le fichier `github-stats.svg` affiche vos statistiques globales (stars, commits, PRs, issues, contributions).
+> **Note:** `stats-topN.svg` files depend on the `VARIANTS` setting in `config.json`. `github-stats.svg` contains your global stats (stars, commits, PRs, issues, contributions).
 
-### Dans un README :
+### In a README
 
 ```markdown
-![Top Languages](https://votre-username.github.io/github-stats/stats-top4.svg)
-![Top Languages](https://votre-username.github.io/github-stats/github-stats.svg)
+![Top Languages](https://your-username.github.io/github-stats/stats-top4.svg)
+![GitHub Stats](https://your-username.github.io/github-stats/github-stats.svg)
 ```
 
-### En HTML :
+### In HTML
 
 ```html
 <img
-  src="https://votre-username.github.io/github-stats/stats-top4.svg"
+  src="https://your-username.github.io/github-stats/stats-top4.svg"
   alt="Top Languages"
 />
 <img
-  src="https://votre-username.github.io/github-stats/github-stats.svg"
-  alt="Github Stats"
+  src="https://your-username.github.io/github-stats/github-stats.svg"
+  alt="GitHub Stats"
 />
 ```
 
 ## ⚙️ Configuration
 
-Toute la configuration se fait dans le fichier `config.json` :
+All settings are configured in `config.json`:
 
 ```json
 {
-  "USERNAME": "votre-username",
+  "USERNAME": "your-username",
   "TITLE": "Top Languages",
   "STATS_TITLE": "GitHub Stats",
   "BG_COLOR": "#202830",
@@ -166,64 +171,64 @@ Toute la configuration se fait dans le fichier `config.json` :
 }
 ```
 
-### Options disponibles
+### Available options
 
-| Option             | Description                          | Exemple               |
-| ------------------ | ------------------------------------ | --------------------- |
-| `USERNAME`         | Votre nom d'utilisateur GitHub       | `"FabioDevCode"`      |
-| `TITLE`            | Titre du SVG des langages            | `"Langages Utilisés"` |
-| `STATS_TITLE`      | Titre du SVG des stats globales      | `"GitHub Stats"`      |
-| `BG_COLOR`         | Couleur de fond                      | `"#202830"`           |
-| `BORDER_COLOR`     | Couleur de la bordure                | `"#202830"`           |
-| `TITLE_COLOR`      | Couleur du titre                     | `"#D1D7E0"`           |
-| `TEXT_COLOR`       | Couleur du texte                     | `"#D1D7E0"`           |
-| `PERCENT_COLOR`    | Couleur des pourcentages (langages)  | `"#9298A1"`           |
-| `ICON_COLOR`       | Couleur des icônes (stats globales)  | `"#6e7681"`           |
-| `VALUE_COLOR`      | Couleur des valeurs (stats globales) | `"#41B883"`           |
-| `VARIANTS`         | Variantes à générer (top N langages) | `[2, 4, 6, 8]`        |
-| `IGNORE_LANGUAGES` | Langages à exclure des stats         | `["HTML", "CSS"]`     |
+| Option             | Description                     | Exemple           |
+| ------------------ | ------------------------------- | ----------------- |
+| `USERNAME`         | Your GitHub username            | `"FabioDevCode"`  |
+| `TITLE`            | Title shown on languages SVG    | `"Top Languages"` |
+| `STATS_TITLE`      | Title shown on global stats SVG | `"GitHub Stats"`  |
+| `BG_COLOR`         | Background color                | `"#202830"`       |
+| `BORDER_COLOR`     | Border color                    | `"#202830"`       |
+| `TITLE_COLOR`      | Title color                     | `"#D1D7E0"`       |
+| `TEXT_COLOR`       | Text color                      | `"#D1D7E0"`       |
+| `PERCENT_COLOR`    | Percentage color (languages)    | `"#9298A1"`       |
+| `ICON_COLOR`       | Icon color (global stats)       | `"#6e7681"`       |
+| `VALUE_COLOR`      | Value color (global stats)      | `"#41B883"`       |
+| `VARIANTS`         | Variants to generate (top N)    | `[2, 4, 6, 8]`    |
+| `IGNORE_LANGUAGES` | Languages excluded from stats   | `["HTML", "CSS"]` |
 
-### Changer la fréquence de mise à jour
+### Change update frequency
 
-Dans `.github/workflows/update-stats.yml`, remplacez la valeur `cron` par l'une des options suivantes selon vos besoins :
+In `.github/workflows/update-stats.yml`, set the `cron` value to match your preferred schedule:
 
 ```yaml
 schedule:
-  - cron: "0 0 * * *" # Tous les jours à minuit
-  - cron: "0 */6 * * *" # Toutes les 6 heures
-  - cron: "0 0 * * 1" # Tous les lundis
+  - cron: "0 0 * * *" # Every day at midnight
+  - cron: "0 */6 * * *" # Every 6 hours
+  - cron: "0 0 * * 1" # Every Monday
 ```
 
-> 💡 La fréquence par défaut est définie dans ce fichier. Conservez une seule ligne `- cron:` active à la fois.
+> 💡 The default schedule is defined in this file. Keep only one active `- cron:` line.
 
-### Couleurs des langages
+### Language colors
 
-Les couleurs des langages sont définies dans `github_colors.json`. Ce fichier contient les couleurs officielles GitHub pour chaque langage. Vous pouvez le modifier si nécessaire.
+Language colors are defined in `github_colors.json`. This file contains official GitHub language colors and can be customized if needed.
 
-## 🐛 Dépannage
+## 🐛 Troubleshooting
 
-### L'action échoue
+### Workflow fails
 
-1. Vérifiez que le token `GH_TOKEN` est bien configuré
-2. Vérifiez que le `USERNAME` dans `config.json` est correct
-3. Consultez les logs dans l'onglet "Actions"
+1. Check that the `GH_TOKEN` secret is correctly configured
+2. Check that `USERNAME` in `config.json` is correct
+3. Review logs in the "Actions" tab
 
-### Les images ne s'affichent pas
+### Images are not displayed
 
-1. Attendez 2-3 minutes après le premier push (déploiement GitHub Pages)
-2. Vérifiez que GitHub Pages est activé dans Settings
-3. Vérifiez l'URL : `https://votre-username.github.io/nom-du-repo/stats-top4.svg`
+1. Wait 2–3 minutes after the first push (GitHub Pages deployment)
+2. Confirm GitHub Pages is enabled in repository settings
+3. Check URL format: `https://your-username.github.io/repo-name/stats-top4.svg`
 
-### Forcer une mise à jour manuelle
+### Force a manual update
 
-1. Onglet "Actions"
-2. "Update GitHub Stats"
-3. "Run workflow"
+1. Open the "Actions" tab
+2. Select "Update GitHub Stats"
+3. Click "Run workflow"
 
-## 📄 Licence
+## 📄 License
 
-Ce projet est distribué sous licence [MIT](LICENSE). Vous êtes libre de l'utiliser, le modifier et le redistribuer.
+This project is distributed under the [MIT](LICENSE) license. You are free to use, modify, and redistribute it.
 
 ---
 
-**Note :** Les dépôts forkés sont exclus du calcul des statistiques. La fréquence de mise à jour est configurable, voir la section [Changer la fréquence de mise à jour](#changer-la-fréquence-de-mise-à-jour).
+**Note:** Forked repositories are excluded from stats calculation. Update frequency is configurable in [Change update frequency](#change-update-frequency).
