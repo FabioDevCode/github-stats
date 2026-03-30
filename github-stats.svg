@@ -29,7 +29,7 @@
 				<path fill-rule="evenodd" d="M11.93 8.5a4.002 4.002 0 01-7.86 0H.75a.75.75 0 010-1.5h3.32a4.002 4.002 0 017.86 0h3.32a.75.75 0 010 1.5h-3.32zm-1.43-.75a2.5 2.5 0 10-5 0 2.5 2.5 0 005 0z"/>
 			</svg>
 			<text x="28" y="12" font-size="14" fill="#D1D7E0">Total Commits:</text>
-			<text x="145" y="12" font-size="14" font-weight="600" fill="#41B883">723</text>
+			<text x="145" y="12" font-size="14" font-weight="600" fill="#41B883">724</text>
 		</g>
 		<g transform="translate(25, 108)">
 			<svg width="16" height="16" viewBox="0 0 16 16" fill="#6e7681">
@@ -43,7 +43,7 @@
 				<path d="M8 9.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"/><path fill-rule="evenodd" d="M8 0a8 8 0 100 16A8 8 0 008 0zM1.5 8a6.5 6.5 0 1113 0 6.5 6.5 0 01-13 0z"/>
 			</svg>
 			<text x="28" y="12" font-size="14" fill="#D1D7E0">Total Issues:</text>
-			<text x="145" y="12" font-size="14" font-weight="600" fill="#41B883">50</text>
+			<text x="145" y="12" font-size="14" font-weight="600" fill="#41B883">59</text>
 		</g>
 		<g transform="translate(25, 156)">
 			<svg width="16" height="16" viewBox="0 0 16 16" fill="#6e7681">
