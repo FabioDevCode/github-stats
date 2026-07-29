@@ -9,6 +9,6 @@
     "PERCENT_COLOR": "#9298A1",
     "ICON_COLOR": "#6e7681",
     "VALUE_COLOR": "#41B883",
-    "VARIANTS": [4],
+    "VARIANTS": [4, 6],
     "IGNORE_LANGUAGES": ["HTML", "CSS", "Handlebars", "SCSS"]
 }
